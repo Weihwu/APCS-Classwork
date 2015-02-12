@@ -35,7 +35,11 @@ public class KnightsTour{
 
     public KnightsTour(int size){
 	board = new int[size][size];
-	solve();
+	for (int i = 0; i < board.length; i++){
+	    for (int j = 0; j < board[i].length; j++){
+		board[i][j] = -1;
+	    }
+	}
     }
 
     
@@ -59,32 +63,21 @@ public class KnightsTour{
 	//Ends
 
 	if (x >= 0 && x < board.length && y >= 0 && y < board[0].length){
-	    if (solve(x+1,y+2,currentMoveNumber+1)){
-		return true;
-	    }
-	    if (solve(x+2,y+1,currentMoveNumber+1)){
-		return true;
-	    }
-	    if (solve(x+2,y-1,currentMoveNumber+1)){
-		return true;
-	    }
-	    if (solve(x+1,y-2,currentMoveNumber+1)){
-		return true;
-	    }
-	    if (solve(x-1,y-2,currentMoveNumber+1)){
-		return true;
-	    }
-	    if (solve(x-2,y-1,currentMoveNumber+1)){
-		return true;
-	    }
-	    if (solve(x-2,y+1,currentMoveNumber+1)){
-		return true;
-	    }
-	    if (solve(x-1,y+2,currentMoveNumber+1)){
-		return true;
+	    if ((solve(x+1,y+2,currentMoveNumber+1)) ||
+		(solve(x+2,y+1,currentMoveNumber+1)) ||
+		(solve(x+2,y-1,currentMoveNumber+1)) ||
+		(solve(x+1,y-2,currentMoveNumber+1)) ||
+		(solve(x-1,y-2,currentMoveNumber+1)) ||
+		(solve(x-2,y-1,currentMoveNumber+1)) ||
+		(solve(x-2,y+1,currentMoveNumber+1)) ||
+		(solve(x-1,y+2,currentMoveNumber+1))){
+		if (board[x][y] != -1){
+		    board[x][y] = currentMoveNumber;
+		    return true;
+		}
 	    }
 	}
-
+	
 	return false;
     }
 
