@@ -59,18 +59,32 @@ public class KnightsTour{
 	//Ends
 
 	if (x >= 0 && x < board.length && y >= 0 && y < board[0].length){
-	    solve(x+1,y+2,currentMoveNumber+1);
-	    solve(x+2,y+1,currentMoveNumber+1);
-	    solve(x+2,y-1,currentMoveNumber+1);
-	    solve(x+1,y-2,currentMoveNumber+1);
-	    solve(x-1,y-2,currentMoveNumber+1);
-	    solve(x-2,y-1,currentMoveNumber+1);
-	    solve(x-2,y+1,currentMoveNumber+1);
-	    solve(x-1,y+2,currentMoveNumber+1);
+	    if (solve(x+1,y+2,currentMoveNumber+1)){
+		return true;
+	    }
+	    if (solve(x+2,y+1,currentMoveNumber+1)){
+		return true;
+	    }
+	    if (solve(x+2,y-1,currentMoveNumber+1)){
+		return true;
+	    }
+	    if (solve(x+1,y-2,currentMoveNumber+1)){
+		return true;
+	    }
+	    if (solve(x-1,y-2,currentMoveNumber+1)){
+		return true;
+	    }
+	    if (solve(x-2,y-1,currentMoveNumber+1)){
+		return true;
+	    }
+	    if (solve(x-2,y+1,currentMoveNumber+1)){
+		return true;
+	    }
+	    if (solve(x-1,y+2,currentMoveNumber+1)){
+		return true;
+	    }
 	}
 
-
-	
 	return false;
     }
 
