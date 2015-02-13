@@ -30,7 +30,12 @@ public class KnightsTour{
 	String ans = "\n";
 	for (int i = 0; i < board.length; i++){
 	    for (int j = 0; j < board[i].length; j++){
-		ans+= board[i][j] + " ";
+		int question = board[i][j];
+		if (question < 10){
+		    ans+= question + "  ";
+		}else{
+		    ans += question + " ";
+		}
 	    }
 	    ans += "\n";
 	}
